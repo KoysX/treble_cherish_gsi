@@ -1,0 +1,67 @@
+From a1375530c469a7760912c386f5e199468221e62f Mon Sep 17 00:00:00 2001
+From: Kuaipz <2685697179@qq.com>
+Date: Sat, 27 May 2023 23:17:34 +0800
+Subject: [PATCH] treble-gms-common
+
+---
+ common/common-vendor.mk | 20 --------------------
+ 1 file changed, 20 deletions(-)
+
+diff --git a/common/common-vendor.mk b/common/common-vendor.mk
+index 328ea71..eb44eb2 100644
+--- a/common/common-vendor.mk
++++ b/common/common-vendor.mk
+@@ -34,12 +34,8 @@ PRODUCT_COPY_FILES += \
+ PRODUCT_PACKAGES += \
+     GoogleExtShared \
+     GooglePrintRecommendationService \
+-    DocumentsUIGoogle \
+-    GooglePackageInstaller \
+-    TagGoogle \
+     CalculatorGooglePrebuilt \
+     CalendarGooglePrebuilt \
+-    Chrome-Stub \
+     GoogleContacts \
+     GoogleTTS \
+     LatinIMEGooglePrebuilt \
+@@ -47,17 +43,12 @@ PRODUCT_PACKAGES += \
+     MarkupGoogle \
+     Photos \
+     PixelThemesStub \
+-    PrebuiltDeskClockGoogle \
+-    SoundAmplifierPrebuilt \
+     SoundPickerPrebuilt \
+     TrichromeLibrary-Stub \
+     WebViewGoogle-Stub \
+-    talkback \
+-    AndroidAutoStubPrebuilt \
+     ConfigUpdater \
+     DeviceIntelligenceNetworkPrebuilt \
+     DevicePersonalizationPrebuiltPixel2020 \
+-    FilesPrebuilt \
+     GoogleDialer \
+     GoogleOneTimeInitializer \
+     GoogleRestorePrebuilt \
+@@ -66,19 +57,8 @@ PRODUCT_PACKAGES += \
+     PrebuiltBugle \
+     PrebuiltGmsCoreSc \
+     AndroidPlatformServices \
+-    SafetyHubPrebuilt \
+-    ScribePrebuilt \
+-    SecurityHubPrebuilt \
+     SettingsIntelligenceGooglePrebuilt \
+-    SetupWizardPrebuilt \
+     TurboPrebuilt \
+-    Velvet \
+     WellbeingPrebuilt \
+-    EmergencyInfoGoogleNoUi \
+-    Flipendo \
+     GoogleServicesFramework \
+-    NexusLauncherRelease \
+-    PixelSetupWizard \
+-    StorageManagerGoogle \
+-    WallpaperPickerGoogleRelease \
+     com.google.android.dialer.support
+-- 
+2.40.1
+
