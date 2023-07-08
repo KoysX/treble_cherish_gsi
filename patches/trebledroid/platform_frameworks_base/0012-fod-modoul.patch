@@ -1,0 +1,24 @@
+From 1e73ad526ea3b53075c47b859704f60945132ce8 Mon Sep 17 00:00:00 2001
+From: KoysX <2685697179b@gmail.com>
+Date: Sat, 8 Jul 2023 14:58:30 +0800
+Subject: [PATCH] fod-modoul
+
+---
+ packages/SystemUI/Android.bp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/packages/SystemUI/Android.bp b/packages/SystemUI/Android.bp
+index b6158801..4cc563c7 100644
+--- a/packages/SystemUI/Android.bp
++++ b/packages/SystemUI/Android.bp
+@@ -180,6 +180,7 @@ android_library {
+         "motion_tool_lib",
+         "vendor.lineage.powershare-V1.0-java",
+         "faceunlock_framework",
++        "vendor.goodix.hardware.biometrics.fingerprint-V2.1-java",
+     ],
+     manifest: "AndroidManifest.xml",
+ 
+-- 
+2.20.1
+

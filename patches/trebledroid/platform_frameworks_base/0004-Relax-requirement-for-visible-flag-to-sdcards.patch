@@ -1,26 +1,31 @@
-From ead916e2ae1a00c6d3e08beefbf2bd7c87c14104 Mon Sep 17 00:00:00 2001
-From: Kuaipz <2685697179@qq.com>
-Date: Sat, 27 May 2023 21:44:41 +0800
-Subject: [PATCH] Relax-requirement-for-visible-flag-to-sdcards
+From 435ef5e6d729875eeb0f6ba678cd25143a6d285c Mon Sep 17 00:00:00 2001
+From: Pierre-Hugues Husson <phh@phh.me>
+Date: Tue, 28 Nov 2017 18:28:04 +0100
+Subject: [PATCH 04/40] Relax requirement for visible flag to sdcards
 
+The vast majority of sdcard readers are stable enough to be declared by
+the API. (I see no counter-example)
+FBE broke adoptable storage with SDCard, hence this need.
+
+Change-Id: Ia616671c03562d1eadaff5531a5c708a62d7ad3a
 ---
  .../core/java/com/android/server/StorageManagerService.java    | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/services/core/java/com/android/server/StorageManagerService.java b/services/core/java/com/android/server/StorageManagerService.java
-index 96c52864..ee4be079 100644
---- a/services/core/java/com/android/server/StorageManagerService.java
-+++ b/services/core/java/com/android/server/StorageManagerService.java
-@@ -1617,7 +1617,8 @@ class StorageManagerService extends IStorageManager.Stub
- 
-             // Adoptable public disks are visible to apps, since they meet
-             // public API requirement of being in a stable location.
--            if (vol.disk.isAdoptable()) {
+diff --git a/core/java/android/os/storage/StorageManager.java b/core/java/android/os/storage/StorageManager.java
+index a21e2ba9ee4c..5022e44c641c 100644
+--- a/core/java/android/os/storage/StorageManager.java
++++ b/core/java/android/os/storage/StorageManager.java
+@@ -1123,7 +1123,8 @@ public class StorageManager {
+         final List<DiskInfo> disks = getDisks();
+         for (DiskInfo disk : disks) {
+             final String diskId = disk.getId();
+-            if (disk.isAdoptable()) {
 +	    // Assume all SDs match this as well
-+            if (vol.disk.isAdoptable() || vol.disk.isSd()) {
-                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
-             } else if (vol.disk.isSd()) {
-                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE_FOR_WRITE;
++            if (disk.isAdoptable() || disk.isSd()) {
+                 Slog.d(TAG, "Found adoptable " + diskId + "; wiping");
+                 try {
+                     // TODO: switch to explicit wipe command when we have it,
 -- 
-2.40.1
+2.25.1
 

@@ -1,0 +1,26 @@
+From 91c38d4056268ddf6bee9ad7dc8ed5e14cf4e4e7 Mon Sep 17 00:00:00 2001
+From: KoysX <2685697179b@gmail.com>
+Date: Sat, 8 Jul 2023 14:26:38 +0800
+Subject: [PATCH] Ignore-cancelled-fingerprint-events-they-are-expecte
+
+---
+ .../biometrics/fingerprint/FingerprintEnrollEnrolling.java     | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/com/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling.java b/src/com/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling.java
+index 18c4ecc..5e40ef5 100644
+--- a/src/com/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling.java
++++ b/src/com/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling.java
+@@ -772,6 +772,9 @@ public class FingerprintEnrollEnrolling extends BiometricsEnrollEnrolling {
+ 
+     @Override
+     public void onEnrollmentError(int errMsgId, CharSequence errString) {
++        android.util.Log.e("PHH-Enroll", "heyo " + errMsgId + ", " + errString , new Exception());
++        if (errMsgId == 5) return;
++
+         onCancelEnrollment(errMsgId);
+     }
+ 
+-- 
+2.20.1
+

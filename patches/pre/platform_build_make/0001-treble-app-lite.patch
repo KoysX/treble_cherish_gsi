@@ -1,0 +1,24 @@
+From 9e06a010ac7627b2fc87393156efca72765028fe Mon Sep 17 00:00:00 2001
+From: KoysX <2685697179b@gmail.com>
+Date: Sat, 8 Jul 2023 15:23:24 +0800
+Subject: [PATCH] treble-app-lite
+
+---
+ target/product/handheld_product.mk | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index d34f575..15ae52b 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -25,7 +25,6 @@ PRODUCT_PACKAGES += \
+     Calendar \
+     Contacts \
+     DeskClock \
+-    Gallery2 \
+     Music \
+     OneTimeInitializer \
+     preinstalled-packages-platform-handheld-product.xml \
+-- 
+2.20.1
+
